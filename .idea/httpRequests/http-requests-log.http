@@ -1,0 +1,259 @@
+GET http://localhost:9090/user/nunpp/vgd?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T053009.405.txt
+
+###
+
+GET http://localhost:9090/user/nunpp?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T053002.200.txt
+
+###
+
+GET http://localhost:9090/user/nuno?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T051108.200.txt
+
+###
+
+GET http://localhost:9090/user/nuno?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T050951.405.txt
+
+###
+
+GET http://localhost:9090/user?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T050801.405.txt
+
+###
+
+GET http://localhost:9090/user/n?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T050738.404.txt
+
+###
+
+GET http://localhost:9090/user/nuno?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T050734.404.txt
+
+###
+
+GET http://localhost:9090/user/nuno?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T050733.404.txt
+
+###
+
+GET http://localhost:9090/user/nuno?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T050445.404.txt
+
+###
+
+GET http://localhost:9090/user/nuno?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T050417.404.txt
+
+###
+
+GET http://localhost:9090/user/nuno?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T050233.404.txt
+
+###
+
+GET http://localhost:9090/user/nuno?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T050119.404.txt
+
+###
+
+GET http://localhost:9090/user?username=nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T042723.200.txt
+
+###
+
+GET http://localhost:9090/user/nuno
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+<> 2017-12-08T042624.404.txt
+
+###
+
+PUT http://localhost:9090/client
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+{"identification":"dddd","name":"myApp","password":"12345","redirectionURL":"http:/joji"}
+
+###
+
+PUT http://localhost:9090/client
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+{"identification":"public","name":"myApp","password":"12345","redirectionURL":"http:/joji"}
+
+<> 2017-12-07T090706.200.txt
+
+###
+
+PUT http://localhost:9090/client
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+{"identification":"public","name":"myApp","password":"12345","redirectionURL":"http:/joji"}
+
+<> 2017-12-07T090635.200.txt
+
+###
+
+PUT http://localhost:9090/client
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+{"identification":"public","name":"myApp","password":"12345","redirectionURL":"http:/joji"}
+
+<> 2017-12-07T090614.200.txt
+
+###
+
+PUT http://localhost:9090/client
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+{"identfication":"public","name":"myApp","password":"12345","redirectionURL":"http:/joji"}
+
+<> 2017-12-07T090551.400.txt
+
+###
+
+PUT http://localhost:9090/client
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+{"tion":"public","name":"myApp","password":"12345","redirectionURL":"http://google.pt"}
+
+<> 2017-12-07T090318.400.txt
+
+###
+
+PUT http://localhost:9090/client
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+{"identification":"public","name":"myApp","password":"12345","redirectionURL":"http://google.pt"}
+
+<> 2017-12-07T090229.200.txt
+
+###
+
+PUT http://localhost:9090/client
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+{"identification":"public","name":"myApp","password":"12345","redirectionURL":"http://google.pt"}
+
+<> 2017-12-07T090155.200.txt
+
+###
+
+PUT http://localhost:9090/client
+Accept:*/*
+Cache-Control:no-cache
+Content-Type:application/json
+
+{"identification":"public","name":"myApp","password":"12345","redirectionURL":"http://google.pt"}
+
+###
+
+PUT http://localhost:9090/client
+Accept:*/*
+Cache-Control:no-cache
+
+{"identification":"public","name":"myApp","password":"12345","redirectionURL":"http://google.pt"}
+
+<> 2017-12-07T085702.415.txt
+
+###
+
+PUT http://localhost:9090/client
+Accept:*/*
+Cache-Control:no-cache
+
+{"identification":"public","name":"myApp","password":"12345","redirectionURL":"http://google.pt"}
+
+<> 2017-12-07T085356.415.txt
+
+###
+
+PUT http://localhost:9090/client
+Accept:application/json
+Cache-Control:no-cache
+
+{"identification":"public","name":"myApp","password":"12345","redirectionURL":"http://google.pt"}
+
+<> 2017-12-07T085317.415.txt
+
+###
+
+PUT http://localhost:8080/client
+Accept:application/json
+Cache-Control:no-cache
+
+{"identification":"public","name":"myApp","password":"12345","redirectionURL":"http://google.pt"}
+
+###
+
