@@ -1,8 +1,11 @@
 package presentation
 
 import akka.actor.ActorSystem
-import akka.stream.ActorMaterializer
-import service.AuthorizationServer;
+import bootstrap.Tables
+import service.AuthorizationServer
+
+import scala.concurrent.Await
+import scala.concurrent.duration._
 
 object MainApplication {
   def main(args: Array[String]): Unit = {
@@ -12,16 +15,15 @@ object MainApplication {
       System.exit(0)
     }
 
+    println(Await.result(Tables.createTables(),Duration.Inf))
+
 
     val hostname = args(0)
     val port = args(1).toInt
 
     implicit val system = ActorSystem("security")
-    implicit val materializer = ActorMaterializer()
-    implicit val executionContext = system.dispatcher
 
-
-    AuthorizationServer.startServer(host = hostname,port,system)
+    new AuthorizationServer(hostname,port)
 
   }
 }

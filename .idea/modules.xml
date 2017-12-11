@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/distributed_systems_security.iml" filepath="$PROJECT_DIR$/.idea/modules/distributed_systems_security.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/distributed_systems_security-build.iml" filepath="$PROJECT_DIR$/.idea/modules/distributed_systems_security-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/authorization_server.iml" filepath="$PROJECT_DIR$/.idea/modules/authorization_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/authorization_server-build.iml" filepath="$PROJECT_DIR$/.idea/modules/authorization_server-build.iml" />
     </modules>
   </component>
 </project>
