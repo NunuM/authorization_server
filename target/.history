@@ -1,0 +1,2 @@
+;reload; set _root_.org.jetbrains.sbt.StructureKeys.sbtStructureOptions in Global := "download resolveClassifiers" ;*/*:dumpStructureTo /private/var/folders/py/2ljbqtq11jb9xydx76rr40y80000gn/T/sbt-structure.xml; session clear-all
+all {file:/Users/nuno/IdeaProjects/authorization_server/}authorization_server/products {file:/Users/nuno/IdeaProjects/authorization_server/}authorization_server/test:products

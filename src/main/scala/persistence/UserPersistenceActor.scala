@@ -2,15 +2,14 @@ package persistence
 
 import akka.actor.{Actor, ActorLogging}
 import bootstrap.Tables
-import model.Messages.{CreateUser, FindUser, LoginUser}
-import model.{LoginInfo, PasswordInfo, User, UserLoginInfo}
+import model.Messages._
+import model._
 import org.mindrot.jbcrypt
 import org.mindrot.jbcrypt.BCrypt
 import slick.jdbc.H2Profile.api._
 
 import scala.concurrent.Future
 import scala.util.{Failure, Success, Try}
-
 
 class UserPersistenceActor extends Actor with ActorLogging {
 
@@ -20,6 +19,7 @@ class UserPersistenceActor extends Actor with ActorLogging {
   private val loginInfos = TableQuery[Tables.LoginInfos]
   private val passwordInfos = TableQuery[Tables.PasswordInfos]
   private val userLoginInfos = TableQuery[Tables.UserLoginInfos]
+  private val oAuth2Infos = TableQuery[Tables.OAuth2Infos]
   private var databaseConnection: Option[Database] = None
 
 
@@ -58,6 +58,9 @@ class UserPersistenceActor extends Actor with ActorLogging {
       log.debug(s"login user: $username")
       sender() ! login(username)
     }
+    case OauthLoginUser(u,p,i) => {
+      sender() ! createOrUpdate(u,p,i)
+    }
   }
 
   private def find(username: String): Future[Option[User]] = {
@@ -84,6 +87,28 @@ class UserPersistenceActor extends Actor with ActorLogging {
       case Some(connection) => connection.run(actions.result.headOption)
       case _ => Future(None)
     }
+  }
+
+  private def createOrUpdate(user:User, preAuth: PreAuth, issuerCredential: IssuerCredential): Future[User] = {
+
+    val dbLoginInfo = LoginInfo(None, issuerCredential.clientId, issuerCredential.clientSecrete)
+
+    val loginInfoAction = {
+      val retrieveLoginInfo = loginInfos.filter(info => info.providerId === issuerCredential.clientId && info.providerKey === issuerCredential.clientSecrete).result.headOption
+      val insertLoginInfo = loginInfos.returning(loginInfos.map(_.id)).into((info, id) => info.copy(id = Some(id))) += dbLoginInfo
+      for {
+        loginInfoOption <- retrieveLoginInfo
+        loginInfo <- loginInfoOption.map(DBIO.successful(_)).getOrElse(insertLoginInfo)
+      } yield loginInfo
+    }
+
+    val actions = (for {
+      _ <- users.insertOrUpdate(user)
+      loginInfo <- loginInfoAction
+      _ <- userLoginInfos += UserLoginInfo(user.id.get, loginInfo.id.get)
+    } yield ()).transactionally
+
+    this.databaseConnection.get.run(actions).map(_ => user)
   }
 
 

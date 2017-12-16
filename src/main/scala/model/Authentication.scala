@@ -91,4 +91,3 @@ case class OpenIDAttribute(
                             key: String,
                             value: String
                           )
-
