@@ -6,6 +6,7 @@ import model.Messages._
 import model._
 import org.mindrot.jbcrypt
 import org.mindrot.jbcrypt.BCrypt
+import slick.jdbc.H2Profile
 import slick.jdbc.H2Profile.api._
 
 import scala.concurrent.Future
@@ -28,7 +29,7 @@ class UserPersistenceActor extends Actor with ActorLogging {
     log.info("PreStart")
 
     this.databaseConnection = Try {
-      Database.forConfig("h2mem1")
+      Database.forConfig("mydb")
     } match {
       case Success(connection) => Option(connection)
       case Failure(e) => {
@@ -50,16 +51,16 @@ class UserPersistenceActor extends Actor with ActorLogging {
       log.debug(s"finding user: $username")
       sender() ! find(username)
     }
-    case CreateUser(user,password) => {
+    case CreateUser(user, password) => {
       log.debug(s"creating user: $user")
-      sender() ! create(user,password)
+      sender() ! create(user, password)
     }
     case LoginUser(username) => {
       log.debug(s"login user: $username")
       sender() ! login(username)
     }
-    case OauthLoginUser(u,p,i) => {
-      sender() ! createOrUpdate(u,p,i)
+    case OauthLoginUser(u, p, i) => {
+      sender() ! createOrUpdate(u, p, i)
     }
   }
 
@@ -75,13 +76,13 @@ class UserPersistenceActor extends Actor with ActorLogging {
     }
   }
 
-  private def login(username:String): Future[Option[(User,String,String)]] = {
+  private def login(username: String): Future[Option[(User, String, String)]] = {
 
     val actions = for {
       user <- this.users if user.username === username || user.email === username
       userLogin <- this.userLoginInfos if userLogin.userId === user.id
       passwordInfos <- this.passwordInfos if passwordInfos.loginInfoId === userLogin.loginInfoId
-   } yield (user,passwordInfos.password,passwordInfos.salt.getOrElse(""))
+    } yield (user, passwordInfos.password, passwordInfos.salt.getOrElse(""))
 
     this.databaseConnection match {
       case Some(connection) => connection.run(actions.result.headOption)
@@ -89,13 +90,17 @@ class UserPersistenceActor extends Actor with ActorLogging {
     }
   }
 
-  private def createOrUpdate(user:User, preAuth: PreAuth, issuerCredential: IssuerCredential): Future[User] = {
+  private def createOrUpdate(user: User, preAuth: PreAuth, issuerCredential: Issuer): Future[User] = {
 
-    val dbLoginInfo = LoginInfo(None, issuerCredential.clientId, issuerCredential.clientSecrete)
+    val dbLoginInfo = LoginInfo(None, issuerCredential.identifier, issuerCredential.secrete)
 
     val loginInfoAction = {
-      val retrieveLoginInfo = loginInfos.filter(info => info.providerId === issuerCredential.clientId && info.providerKey === issuerCredential.clientSecrete).result.headOption
-      val insertLoginInfo = loginInfos.returning(loginInfos.map(_.id)).into((info, id) => info.copy(id = Some(id))) += dbLoginInfo
+      val retrieveLoginInfo = loginInfos.filter(
+        info => info.providerId === issuerCredential.identifier &&
+          info.providerKey === issuerCredential.secrete).result.headOption
+      val insertLoginInfo = loginInfos.returning(loginInfos.map(_.id)).
+        into((info, id) => info.copy(id = Some(id))) += dbLoginInfo
+
       for {
         loginInfoOption <- retrieveLoginInfo
         loginInfo <- loginInfoOption.map(DBIO.successful(_)).getOrElse(insertLoginInfo)
@@ -103,28 +108,38 @@ class UserPersistenceActor extends Actor with ActorLogging {
     }
 
     val actions = (for {
-      _ <- users.insertOrUpdate(user)
+      user <- users.filter(_.email === user.email).result.headOption.flatMap {
+        case Some(user) => DBIO.successful(user).map(_.id)
+        case None => ((users returning users.map(user => user.id)) += user).map(Option(_))
+      }
+
       loginInfo <- loginInfoAction
-      _ <- userLoginInfos += UserLoginInfo(user.id.get, loginInfo.id.get)
+      userLoginInfo <- userLoginInfos.filter(t => t.userId === user.get && t.loginInfoId === loginInfo.id.get).result.headOption.flatMap {
+        case Some(userLoginInfo) => DBIO.successful(userLoginInfo).map(_.id)
+        case None => ((userLoginInfos returning userLoginInfos.map(loginInfo => loginInfo.id)) += UserLoginInfo(None, user.get, loginInfo.id.get)).map(Option(_))
+      }
+      _ <- oAuth2Infos.filter(_.loginInfoId === userLoginInfo.get).result.headOption.flatMap {
+        case Some(o) => oAuth2Infos.update(OAuth2Info(o.id, preAuth.authToken, Option(preAuth.tokenType), Option(preAuth.expiresIn.toInt), None, userLoginInfo.get))
+        case None => oAuth2Infos += OAuth2Info(None, preAuth.authToken, Option(preAuth.tokenType), Option(preAuth.expiresIn.toInt), None, userLoginInfo.get)
+      }
     } yield ()).transactionally
+
 
     this.databaseConnection.get.run(actions).map(_ => user)
   }
 
-
-  private def create(user: User,password:String): Future[Option[Unit]] = {
+  private def create(user: User, password: String): Future[Option[Unit]] = {
 
     this.databaseConnection match {
       case Some(connection) => {
         val salt = BCrypt.gensalt()
         val passwordHashed = BCrypt.hashpw(password, salt)
-        val actions = (for{
+        val actions = (for {
 
-          id <- (users returning users.map(_.id)) += user
+          userId <- (users returning users.map(_.id)) += user
           passwordLoginInfo <- this.loginInfos.filter(_.providerId === "password").result.head
-          _ <- userLoginInfos += UserLoginInfo(id,passwordLoginInfo.id.get)
-          _ <- passwordInfos += PasswordInfo("bcrypt",passwordHashed,Option(salt.toString),id)
-
+          userInfoId <- (userLoginInfos returning userLoginInfos.map(_.id)) += UserLoginInfo(None, userId, passwordLoginInfo.id.get)
+          _ <- passwordInfos += PasswordInfo("bcrypt", passwordHashed, Option(salt.toString), userId)
         } yield ()).transactionally
 
         connection.run(actions).map(Option(_))

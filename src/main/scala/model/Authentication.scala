@@ -18,7 +18,7 @@ case class LoginInfo(
   * @param userID
   * @param loginInfoId
   */
-case class UserLoginInfo(
+case class UserLoginInfo( id: Option[Long],
                           userID: Long,
                           loginInfoId: Long
                         )

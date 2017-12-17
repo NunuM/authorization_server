@@ -3,6 +3,7 @@ package presentation
 import akka.actor.ActorSystem
 import bootstrap.Tables
 import service.AuthorizationServer
+import util.AppConfig
 
 import scala.concurrent.Await
 import scala.concurrent.duration._
@@ -22,6 +23,8 @@ object MainApplication {
     val port = args(1).toInt
 
     implicit val system = ActorSystem("security")
+
+    implicit val config = new AppConfig()
 
     new AuthorizationServer(hostname,port)
 

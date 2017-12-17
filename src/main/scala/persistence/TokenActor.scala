@@ -22,6 +22,7 @@ class TokenActor extends Actor with ActorLogging{
 
   override def receive: Receive = {
     case GenerateToken(user) => {
+      println(user)
       val token = UUID.randomUUID()
       val expires = (2 day).toMillis + System.currentTimeMillis()
       tokenManager += (token -> (user, (2 day).toMillis + System.currentTimeMillis()))
