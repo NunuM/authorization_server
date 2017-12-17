@@ -30,7 +30,7 @@ final class AppConfig(conf: Option[Config] = None) {
   }
 
   val facebookIssuer : Issuer = issuerInfo("facebook")
-
+  val googleIssuer : Issuer = issuerInfo("google")
 
   private def issuerInfo(issuer: String): Issuer = {
 
@@ -40,7 +40,7 @@ final class AppConfig(conf: Option[Config] = None) {
     val accessTokenURL = Uri(issuers.getString(s"$issuer.accessTokenURL"))
     val resourceOwnerInfo = Uri(issuers.getString(s"$issuer.resourceOwnerInfo"))
     val redirectURL = Uri(issuers.getString(s"$issuer.redirectURL"))
-    val scope = Option(issuers.getString(s"$issuer.scope").split("\\.").toList)
+    val scope = Option(issuers.getString(s"$issuer.scope").split("\\,").toList)
 
     issuer match {
       case "facebook" => {

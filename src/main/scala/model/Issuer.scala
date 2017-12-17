@@ -2,18 +2,6 @@ package model
 
 import akka.http.scaladsl.model.Uri
 
-
-/**
-  * identifier = "167287979969308"
-  * identifier=${?FACEBOOK_CLIENT_ID}
-  * secret = "d9f6c5d384487054aaebb7500793725b"
-  * secret=${?FACEBOOK_CLIENT_SECRET}
-  * authorizationDialog = "https://www.facebook.com/v2.11/dialog/oauth"
-  * accessTokenURL="https://graph.facebook.com/v2.11/oauth/access_token"
-  * resourceOwnerInfo = "https://graph.facebook.com/v2.11/me"
-  * redirectURL="https://localhost/authenticate/facebook"
-  * scope="email"
-  */
 trait Issuer {
   val identifier: String
   val secrete: String
@@ -74,9 +62,26 @@ class GoogleIssuer(override val identifier: String,
                    redirectUrl:Uri
                   ) extends Issuer {
 
-  override def authorizationDialog() : Uri = ???
+  override def authorizationDialog() : Uri = {
+    val query = Uri.Query(Map(
+      "client_id"-> this.identifier,
+      "redirect_uri"-> redirectUrl.toString(),
+      "scope" -> this.scope.map(_.mkString(",")).getOrElse(""),
+      "response_type" -> "code"
+    ))
+    authorizationDialogUrl.withQuery(query)
+  }
 
-  override def accessTokenURL(q: Uri.Query) = ???
+  override def accessTokenURL(q: Uri.Query) = {
+    val query = Map(
+      "client_id"-> this.identifier,
+      "redirect_uri"-> redirectUrl.toString(),
+      "client_secret" -> this.secrete,
+      "grant_type" -> "authorization_code"
+    )
+
+    accessTokenUrl.withQuery(Uri.Query(query.++(q.toMap)))
+  }
 
   override def resourceOwnerInfo(q: Uri.Query) = ???
 }

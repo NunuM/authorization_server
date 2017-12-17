@@ -117,6 +117,17 @@ class AuthorizationServer(host: String, port: Int)
           }
         }
       }
+    } ~ path("login" / "google" / "authorization") {
+      parameter('code.?, 'error_reason.?, 'error.?, 'error_description.?) { (code, errorReason, error, errorDescription) =>
+        val issuer = config.googleIssuer
+
+        complete {
+          code match {
+            case Some(rCode) => googleOauthGrantFlow(issuer.accessTokenURL(Uri.Query(Map("code" -> rCode))), issuer)
+            case _ => HttpResponse(StatusCodes.Unauthorized)
+          }
+        }
+      }
     } ~ path("authorized") {
       post {
         complete {
@@ -132,7 +143,7 @@ class AuthorizationServer(host: String, port: Int)
     val response = for {
       tokenResponse <- Http().singleRequest(HttpRequest(HttpMethods.GET, tokenUrl)).map(_.entity.dataBytes)
       preAuth <- tokenResponse.via(unmarshallerEntity.map(_.convertTo[PreAuth])).runWith(Sink.head)
-      responseFromResource <- Http().singleRequest(HttpRequest(HttpMethods.GET, Uri(s"https://graph.facebook.com/v2.11/me?fields=email,about,name,first_name,last_name&access_token=${preAuth.authToken}"))).map(_.entity.dataBytes)
+      responseFromResource <- Http().singleRequest(HttpRequest(HttpMethods.GET, provider.resourceOwnerInfo(Uri.Query(Map("access_token"-> preAuth.authToken))))).map(_.entity.dataBytes)
       userFromResource <- responseFromResource.via(unmarshallerEntity.map(_.convertTo[FacebookUser])).runWith(Sink.head)
       user <- userPersistenceActor.ask(OauthLoginUser(toUser(userFromResource), preAuth, provider)).mapTo[Future[User]]
     } yield {
@@ -146,6 +157,29 @@ class AuthorizationServer(host: String, port: Int)
 
     response.flatten
   }
+
+
+  def googleOauthGrantFlow(tokenUrl: Uri, provider: Issuer): Future[BearerToken] = {
+
+    println(tokenUrl)
+    val response = for {
+      tokenResponse <- Http().singleRequest(HttpRequest(HttpMethods.GET, tokenUrl)).map(_.entity.dataBytes)
+      preAuth <- tokenResponse.via(unmarshallerEntity.map(_.convertTo[PreAuth])).runWith(Sink.head)
+      responseFromResource <- Http().singleRequest(HttpRequest(HttpMethods.GET, provider.resourceOwnerInfo(Uri.Query(Map("access_token"-> preAuth.authToken))))).map(_.entity.dataBytes)
+      userFromResource <- responseFromResource.via(unmarshallerEntity.map(_.convertTo[FacebookUser])).runWith(Sink.head)
+      user <- userPersistenceActor.ask(OauthLoginUser(toUser(userFromResource), preAuth, provider)).mapTo[Future[User]]
+    } yield {
+      user.map(u => tokenPersistenceActor.ask(GenerateToken(u)).mapTo[BearerToken]).flatten
+    }
+
+    response.recover {
+      case e: DeserializationException => HttpResponse(StatusCodes.InsufficientStorage)
+      case e: JdbcSQLException => HttpResponse(StatusCodes.InsufficientStorage)
+    }
+
+    response.flatten
+  }
+
 
 
   private def unmarshallerEntity: Flow[ByteString, JsValue, NotUsed] = {
