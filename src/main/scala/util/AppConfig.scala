@@ -33,10 +33,9 @@ final class AppConfig(conf: Option[Config] = None) {
   }
 
 
-  protected val issuers: Config = rootConfig.getConfig("issuers")
+  private val issuers: Config = rootConfig.getConfig("issuers")
   private val facebookConfig = issuers.getConfig("facebook")
   private val googleConfig = issuers.getConfig("google")
-
 
   import Issuers._
 
@@ -58,13 +57,13 @@ final class AppConfig(conf: Option[Config] = None) {
       }
       case Facebook => {
         (
-          googleConfig.getString("identifier"),
-          googleConfig.getString("secret"),
-          googleConfig.getString("authorizationDialog"),
-          googleConfig.getString("accessTokenURL"),
-          googleConfig.getString("resourceOwnerInfo"),
-          googleConfig.getString("redirectURL"),
-          googleConfig.getString(s"$issuer.scope").split("\\,").toList
+          facebookConfig.getString("identifier"),
+          facebookConfig.getString("secret"),
+          facebookConfig.getString("authorizationDialog"),
+          facebookConfig.getString("accessTokenURL"),
+          facebookConfig.getString("resourceOwnerInfo"),
+          facebookConfig.getString("redirectURL"),
+          facebookConfig.getString(s"$issuer.scope").split("\\,").toList
         )
       }
     }

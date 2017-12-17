@@ -82,7 +82,7 @@ class FacebookIssuerApplication(implicit val appConfig: AppConfig)
 
 }
 
-class GoogleIssuerApplication((implicit val appConfig: AppConfig)
+class GoogleIssuerApplication(implicit val appConfig: AppConfig)
   extends IssuerApplication {
 
   override val name: String = "google"

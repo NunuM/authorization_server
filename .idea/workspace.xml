@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d68d17fd-bcdd-4ab8-8c02-82d012e37591" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/service/request/RequestActor.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/model/Issuer.scala" afterPath="$PROJECT_DIR$/src/main/scala/model/IssuerApplication.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/service/AuthorizationServer.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/service/AuthorizationServer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/model/Messages.scala" afterPath="$PROJECT_DIR$/src/main/scala/model/Messages.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/persistence/UserPersistenceActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/persistence/UserPersistenceActor.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/service/AuthorizationServer.scala" afterPath="$PROJECT_DIR$/src/main/scala/service/AuthorizationServer.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/model/IssuerApplication.scala" afterPath="$PROJECT_DIR$/src/main/scala/model/IssuerApplication.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/util/AppConfig.scala" afterPath="$PROJECT_DIR$/src/main/scala/util/AppConfig.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,8 +33,8 @@
       <file leaf-file-name="AuthorizationServer.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/service/AuthorizationServer.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="125" column="52" lean-forward="false" selection-start-line="125" selection-start-column="32" selection-end-line="125" selection-end-column="52" />
+            <state relative-caret-position="1225">
+              <caret line="194" column="3" lean-forward="true" selection-start-line="194" selection-start-column="3" selection-end-line="194" selection-end-column="3" />
               <folding>
                 <element signature="e#17#36#0" expanded="true" />
               </folding>
@@ -66,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppConfig.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AppConfig.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/util/AppConfig.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="52" column="41" lean-forward="false" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
+            <state relative-caret-position="231">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="e#14#41#0" expanded="true" />
               </folding>
@@ -78,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IssuerApplication.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IssuerApplication.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/model/IssuerApplication.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="109" column="3" lean-forward="true" selection-start-line="109" selection-start-column="3" selection-end-line="109" selection-end-column="3" />
+            <state relative-caret-position="216">
+              <caret line="84" column="30" lean-forward="false" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="30" />
               <folding>
                 <element signature="e#15#78#0" expanded="true" />
               </folding>
@@ -172,8 +168,8 @@
         <option value="$PROJECT_DIR$/src/main/scala/service/AuthorizationServer.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/model/Issuer.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/service/request/RequestActor.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/util/AppConfig.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/model/IssuerApplication.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/util/AppConfig.scala" />
       </list>
     </option>
   </component>
@@ -715,11 +711,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513543477885</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="and more">
+      <created>1513547839764</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1513547839764</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91402000" />
+    <option name="totallyTimeSpent" value="91743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
@@ -1192,30 +1195,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/service/AuthorizationServer.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="125" column="52" lean-forward="false" selection-start-line="125" selection-start-column="32" selection-end-line="125" selection-end-column="52" />
+        <state relative-caret-position="1225">
+          <caret line="194" column="3" lean-forward="true" selection-start-line="194" selection-start-column="3" selection-end-line="194" selection-end-column="3" />
           <folding>
             <element signature="e#17#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/util/AppConfig.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/model/IssuerApplication.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="52" column="41" lean-forward="false" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
+        <state relative-caret-position="216">
+          <caret line="84" column="30" lean-forward="false" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="30" />
           <folding>
-            <element signature="e#14#41#0" expanded="true" />
+            <element signature="e#15#78#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/model/IssuerApplication.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/util/AppConfig.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="109" column="3" lean-forward="true" selection-start-line="109" selection-start-column="3" selection-end-line="109" selection-end-column="3" />
+        <state relative-caret-position="231">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="e#15#78#0" expanded="true" />
+            <element signature="e#14#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
