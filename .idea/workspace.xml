@@ -2,32 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d68d17fd-bcdd-4ab8-8c02-82d012e37591" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/persistence/TokenActor.scala" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-07T085317.415.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-07T085356.415.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-07T085702.415.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-07T090155.200.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-07T090229.200.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-07T090318.400.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-07T090551.400.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-07T090614.200.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-07T090635.200.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-07T090706.200.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T042624.404.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T042723.200.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T050119.404.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T050233.404.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T050417.404.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T050445.404.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T050733.404.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T050734.404.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T050738.404.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T050801.405.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T050951.405.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T051108.200.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T053002.200.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2017-12-08T053009.405.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/SBT__com_typesafe_akka_akka_actor_2_12_2_4_20_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_typesafe_akka_akka_actor_2_12_2_4_20_jar.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/SBT__com_typesafe_akka_akka_http_2_12_10_0_11_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_typesafe_akka_akka_http_2_12_10_0_11_jar.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/SBT__com_typesafe_akka_akka_http_core_2_12_10_0_11_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__com_typesafe_akka_akka_http_core_2_12_10_0_11_jar.xml" />
@@ -44,45 +18,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_scala_lang_modules_scala_java8_compat_2_12_0_8_0_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_scala_lang_modules_scala_java8_compat_2_12_0_8_0_jar.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_scala_lang_modules_scala_parser_combinators_2_12_1_0_4_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_scala_lang_modules_scala_parser_combinators_2_12_1_0_4_jar.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/SBT__org_scala_lang_scala_library_2_12_4_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_scala_lang_scala_library_2_12_4_jar.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/authorization_server-build.iml" afterPath="$PROJECT_DIR$/.idea/modules/authorization_server-build.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/authorization_server.iml" afterPath="$PROJECT_DIR$/.idea/modules/authorization_server.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" afterPath="$PROJECT_DIR$/.idea/sbt.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/ivyConfiguration/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/$global/ivyConfiguration/$global/streams/out" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/exportedProducts/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/compile/exportedProducts/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/exportedProducts/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/exportedProducts/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/internalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/internalDependencyClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/model/Athentication.scala" afterPath="$PROJECT_DIR$/src/main/scala/model/Authentication.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/model/Messages.scala" afterPath="$PROJECT_DIR$/src/main/scala/model/Messages.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/persistence/UserPersistenceActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/persistence/UserPersistenceActor.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/service/AuthorizationServer.scala" afterPath="$PROJECT_DIR$/src/main/scala/service/AuthorizationServer.scala" />
-      <change beforePath="$PROJECT_DIR$/target/.history" afterPath="$PROJECT_DIR$/target/.history" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/service/AuthorizationServer.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/service/AuthorizationServer.class" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/ivyConfiguration/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/ivyConfiguration/$global/streams/out" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/output" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" />
-      <change beforePath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/target/streams/compile/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/managedClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/runtime/externalDependencyClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/target/streams/runtime/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/runtime/managedClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/target/streams/test/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/test/externalDependencyClasspath/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/target/streams/test/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/test/managedClasspath/$global/streams/export" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -186,6 +122,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -722,12 +659,20 @@
       <option name="presentableId" value="Default" />
       <updated>1512997557961</updated>
       <workItem from="1512997559368" duration="38246000" />
-      <workItem from="1513372053001" duration="6817000" />
+      <workItem from="1513372053001" duration="7115000" />
     </task>
+    <task id="LOCAL-00001" summary="Ok">
+      <created>1513388481594</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1513388481594</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45063000" />
+    <option name="totallyTimeSpent" value="45361000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -736,7 +681,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="sbt" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.567042" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -766,6 +711,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
