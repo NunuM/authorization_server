@@ -90,7 +90,7 @@ class UserPersistenceActor extends Actor with ActorLogging {
     }
   }
 
-  private def createOrUpdate(user: User, preAuth: PreAuth, issuerCredential: Issuer): Future[User] = {
+  private def createOrUpdate(user: User, preAuth: PreAuth, issuerCredential: IssuerApplication): Future[User] = {
 
     val dbLoginInfo = LoginInfo(None, issuerCredential.identifier, issuerCredential.secrete)
 

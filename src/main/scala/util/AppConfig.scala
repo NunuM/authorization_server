@@ -5,7 +5,9 @@ import java.net.InetAddress
 import akka.http.scaladsl.model.Uri
 import com.typesafe.config.Config
 import com.typesafe.config.{Config, ConfigFactory, ConfigObject}
-import model.{FacebookIssuer, GoogleIssuer, Issuer}
+import model.{FacebookIssuerApplication, GoogleIssuerApplication, IssuerApplication}
+
+import scala.util.Try
 
 
 final class AppConfig(conf: Option[Config] = None) {
@@ -18,39 +20,61 @@ final class AppConfig(conf: Option[Config] = None) {
     case _ => ConfigFactory.load
   }
 
-  protected val issuers: Config = rootConfig.getConfig("issuers")
+  object Issuers extends Enumeration {
+    type Issuers = Value
+    val Facebook, Google = Value
 
-  private lazy val facebook : Issuer = issuerInfo("facebook")
-  private lazy val google : Issuer = issuerInfo("google")
-
-  val issuer = (issuer:String) => issuer match {
-    case "facebook" => Option(facebook)
-    case "google" => Option(google)
-    case _ => None
-  }
-
-  val facebookIssuer : Issuer = issuerInfo("facebook")
-  val googleIssuer : Issuer = issuerInfo("google")
-
-  private def issuerInfo(issuer: String): Issuer = {
-
-    val identifier = issuers.getString(s"$issuer.identifier")
-    val secrete = issuers.getString(s"$issuer.secret")
-    val authorizationDialog = Uri(issuers.getString(s"$issuer.authorizationDialog"))
-    val accessTokenURL = Uri(issuers.getString(s"$issuer.accessTokenURL"))
-    val resourceOwnerInfo = Uri(issuers.getString(s"$issuer.resourceOwnerInfo"))
-    val redirectURL = Uri(issuers.getString(s"$issuer.redirectURL"))
-    val scope = Option(issuers.getString(s"$issuer.scope").split("\\,").toList)
-
-    issuer match {
-      case "facebook" => {
-        new FacebookIssuer(identifier, secrete, scope, authorizationDialog, accessTokenURL, resourceOwnerInfo, redirectURL)
+    implicit def fromString(issuer: String): Issuers = {
+      issuer match {
+        case "facebook" => Facebook
+        case "google" => Google
       }
-      case "google" =>
-        new GoogleIssuer(identifier, secrete, scope, authorizationDialog, accessTokenURL, resourceOwnerInfo, redirectURL)
     }
   }
 
+
+  protected val issuers: Config = rootConfig.getConfig("issuers")
+  private val facebookConfig = issuers.getConfig("facebook")
+  private val googleConfig = issuers.getConfig("google")
+
+
+  import Issuers._
+
+  val googleOauth = oauthAppInfo(Issuers.Google)
+  val facebookOauth = oauthAppInfo(Issuers.Facebook)
+
+  def oauthAppInfo(issuer: Issuers) = {
+    issuers match {
+      case Google => {
+        (
+          googleConfig.getString("identifier"),
+          googleConfig.getString("secret"),
+          googleConfig.getString("authorizationDialog"),
+          googleConfig.getString("accessTokenURL"),
+          googleConfig.getString("resourceOwnerInfo"),
+          googleConfig.getString("redirectURL"),
+          googleConfig.getString(s"$issuer.scope").split("\\,").toList
+        )
+      }
+      case Facebook => {
+        (
+          googleConfig.getString("identifier"),
+          googleConfig.getString("secret"),
+          googleConfig.getString("authorizationDialog"),
+          googleConfig.getString("accessTokenURL"),
+          googleConfig.getString("resourceOwnerInfo"),
+          googleConfig.getString("redirectURL"),
+          googleConfig.getString(s"$issuer.scope").split("\\,").toList
+        )
+      }
+    }
+  }
+
+  /** Attempts to acquire from environment, then java system properties. */
+  def withFallback[T](env: Try[T], key: String): Option[T] = env match {
+    case null => None
+    case value => value.toOption
+  }
 
 }
 

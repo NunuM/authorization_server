@@ -97,8 +97,8 @@ class AuthorizationServer(host: String, port: Int)
         parameter('issuer) { issuer =>
           config.issuer(issuer) match {
             case Some(i) => {
-              println(i.authorizationDialog)
-              redirect(i.authorizationDialog, StatusCodes.TemporaryRedirect)
+              println(i.authorizationRequest)
+              redirect(i.authorizationRequest, StatusCodes.TemporaryRedirect)
             }
             case _ => complete {
               HttpResponse(StatusCodes.BadRequest)
@@ -112,7 +112,7 @@ class AuthorizationServer(host: String, port: Int)
 
         complete {
           code match {
-            case Some(rCode) => oauthGrantFlow(issuer.accessTokenURL(Uri.Query(Map("code" -> rCode))), issuer)
+            case Some(rCode) => oauthGrantFlow(issuer.accessTokenRequest(Uri.Query(Map("code" -> rCode))), issuer)
             case _ => HttpResponse(StatusCodes.Unauthorized)
           }
         }
@@ -123,7 +123,7 @@ class AuthorizationServer(host: String, port: Int)
 
         complete {
           code match {
-            case Some(rCode) => googleOauthGrantFlow(issuer.accessTokenURL(Uri.Query(Map("code" -> rCode))), issuer)
+            case Some(rCode) => googleOauthGrantFlow(issuer.accessTokenRequest(Uri.Query(Map("code" -> rCode))), issuer)
             case _ => HttpResponse(StatusCodes.Unauthorized)
           }
         }
@@ -137,7 +137,7 @@ class AuthorizationServer(host: String, port: Int)
     }
 
 
-  def oauthGrantFlow(tokenUrl: Uri, provider: Issuer): Future[BearerToken] = {
+  def oauthGrantFlow(tokenUrl: Uri, provider: IssuerApplication): Future[BearerToken] = {
 
     println(tokenUrl)
     val response = for {
@@ -159,7 +159,7 @@ class AuthorizationServer(host: String, port: Int)
   }
 
 
-  def googleOauthGrantFlow(tokenUrl: Uri, provider: Issuer): Future[BearerToken] = {
+  def googleOauthGrantFlow(tokenUrl: Uri, provider: IssuerApplication): Future[BearerToken] = {
 
     println(tokenUrl)
     val response = for {

@@ -13,7 +13,7 @@ object Messages {
   case class LoginUser(username:String)
   case class PreAuth(authToken:String,expiresIn:String,tokenType:String)
   case class IssuerCredential(clientId:String,clientSecrete:String)
-  case class OauthLoginUser(user: User,preAuth: PreAuth,issuerCredential: Issuer)
+  case class OauthLoginUser(user: User,preAuth: PreAuth,issuerCredential: IssuerApplication)
   case class GenerateToken(user: User)
   case class Authenticate(token:UUID)
   case class BearerToken(token_type:String,token:String,expires_in:String)
