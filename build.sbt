@@ -16,3 +16,6 @@ libraryDependencies ++= Seq(
   "org.mindrot" % "jbcrypt" % "0.3m"
 
 )
+
+
+mainClass in assembly := Some("presentation.MainApplication")
