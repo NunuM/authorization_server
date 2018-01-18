@@ -19,3 +19,6 @@ libraryDependencies ++= Seq(
 
 
 mainClass in assembly := Some("presentation.MainApplication")
+
+
+scalacOptions in (Compile,doc) := Seq("-groups", "-implicits")
