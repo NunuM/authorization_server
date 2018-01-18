@@ -155,8 +155,12 @@ class AuthorizationServer(host: String, port: Int)
   val bindingFuture = Http().bindAndHandle(route, host, port)
 
   println(s"Server online at http://localhost:$port/\nPress RETURN to stop...")
-  StdIn.readLine()
-  bindingFuture
-    .flatMap(_.unbind())
-    .onComplete(_ => system.terminate())
+  val t = StdIn.readLine()
+
+  if("terminate".equals(t)){
+    bindingFuture
+      .flatMap(_.unbind())
+      .onComplete(_ => system.terminate())
+  }
+
 }
