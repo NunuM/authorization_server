@@ -99,9 +99,7 @@ class AuthorizationServer(host: String, port: Int)
                   .flatten
                   .map[Future[HttpResponse]]{
                     case Some(res) => {
-                      import model.Messages.JsonSupport._
-                      import spray.json._
-                      tokenPersistenceActor.ask(GenerateToken(res)).mapTo[OauthBearerToken].map(u => HttpResponse(StatusCodes.OK, entity = oauthBearerTokenJsonSupport.toJson.toString()))
+                      Future.successful(HttpResponse(StatusCodes.InsufficientStorage))
                     }
                     case _ => Future.successful(HttpResponse(StatusCodes.InsufficientStorage))
                   }
