@@ -9,7 +9,7 @@ import spray.json._
 import scala.xml.NodeSeq
 
 
-case class User(id: Option[Long], externalIdentifier: String, username: String, firstName: String, email: String, isActive: Boolean)
+case class User(id: Option[Long], username: String, firstName: String, email: String, isActive: Boolean)
 
 case class UserRegistrationRequest(username: String, firstName: String, email: String, password: String)
 

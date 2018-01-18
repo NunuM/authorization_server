@@ -4505,42 +4505,42 @@
 [0m[[0m[0mdebug[0m] [0m[0mignoring unhandled DependencyDescriptorMediator: class sbt.internal.librarymanagement.IvyScalaUtil$OverrideScalaMediator[0m
 [0m[[0m[0mdebug[0m] [0m[0m	resolved ivy file produced in cache[0m
 [0m[[0m[0mdebug[0m] [0m[0m:: downloading artifacts ::[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-stream-testkit_2.12;2.4.20!akka-stream-testkit_2.12.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe#ssl-config-core_2.12;0.2.1!ssl-config-core_2.12.jar(bundle)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.mindrot#jbcrypt;0.3m!jbcrypt.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.zaxxer#HikariCP;2.5.1!HikariCP.jar(bundle)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-http-spray-json_2.12;10.0.11!akka-http-spray-json_2.12.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-stream-testkit_2.12;2.4.20!akka-stream-testkit_2.12.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.mindrot#jbcrypt;0.3m!jbcrypt.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.slick#slick_2.12;3.2.1!slick_2.12.jar(bundle)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(bundle)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang#scala-library;2.12.4!scala-library.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-http-xml_2.12;10.0.10!akka-http-xml_2.12.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-actor_2.12;2.4.20!akka-actor_2.12.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(bundle)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-testkit_2.12;2.4.20!akka-testkit_2.12.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.slf4j#slf4j-nop;1.6.4!slf4j-nop.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-http-core_2.12;10.0.11!akka-http-core_2.12.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.slf4j#slf4j-api;1.7.21!slf4j-api.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang.modules#scala-parser-combinators_2.12;1.0.4!scala-parser-combinators_2.12.jar(bundle)[0m
+[0m[[0m[0mdebug[0m] [0m[0mno default ivy user dir defined: set to /Users/nuno/.ivy2[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe#config;1.3.0!config.jar(bundle)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-http_2.12;10.0.11!akka-http_2.12.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.12.4!scala-compiler.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0mno default ivy user dir defined: set to /Users/nuno/.ivy2[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-http-testkit_2.12;10.0.11!akka-http-testkit_2.12.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-parsing_2.12;10.0.11!akka-parsing_2.12.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] io.spray#spray-json_2.12;1.3.4!spray-json_2.12.jar(bundle)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-actor_2.12;2.4.20!akka-actor_2.12.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.4!scala-reflect.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.slick#slick-hikaricp_2.12;3.2.1!slick-hikaricp_2.12.jar(bundle)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-testkit_2.12;2.4.20!akka-testkit_2.12.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-stream_2.12;2.4.20!akka-stream_2.12.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] jline#jline;2.14.5!jline.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe#config;1.3.0!config.jar(bundle)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.h2database#h2;1.4.196!h2.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.slf4j#slf4j-nop;1.6.4!slf4j-nop.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-parsing_2.12;10.0.11!akka-parsing_2.12.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe#ssl-config-core_2.12;0.2.1!ssl-config-core_2.12.jar(bundle)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.4!scala-reflect.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang.modules#scala-java8-compat_2.12;0.8.0!scala-java8-compat_2.12.jar(bundle)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-http-spray-json_2.12;10.0.11!akka-http-spray-json_2.12.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] jline#jline;2.14.5!jline.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.h2database#h2;1.4.196!h2.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-stream_2.12;2.4.20!akka-stream_2.12.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] com.typesafe.akka#akka-http-xml_2.12;10.0.10!akka-http-xml_2.12.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.reactivestreams#reactive-streams;1.0.0!reactive-streams.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0mincluding url: jar:file:/Users/nuno/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.0.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang.modules#scala-parser-combinators_2.12;1.0.4!scala-parser-combinators_2.12.jar(bundle)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] io.spray#spray-json_2.12;1.3.4!spray-json_2.12.jar(bundle)[0m
 [0m[[0m[0mdebug[0m] [0m[0mno default cache defined: set to /Users/nuno/.ivy2/cache[0m
 [0m[[0m[0mdebug[0m] [0m[0mincluding url: jar:file:/Users/nuno/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.0.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml[0m
 [0m[[0m[0mdebug[0m] [0m[0mincluding url: jar:file:/Users/nuno/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.0.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml[0m
 [0m[[0m[0mdebug[0m] [0m[0mincluding url: jar:file:/Users/nuno/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.0.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml[0m
 [0m[[0m[0mdebug[0m] [0m[0mincluding url: jar:file:/Users/nuno/.sbt/boot/scala-2.12.4/org.scala-sbt/sbt/1.0.4/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml[0m
-[0m[[0m[0mdebug[0m] [0m[0msettings loaded (15ms)[0m
+[0m[[0m[0mdebug[0m] [0m[0msettings loaded (41ms)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	default cache: /Users/nuno/.ivy2/cache[0m
 [0m[[0m[0mdebug[0m] [0m[0m	default resolver: default[0m
 [0m[[0m[0mdebug[0m] [0m[0m	-- 5 resolvers:[0m
@@ -4549,7 +4549,7 @@
 [0m[[0m[0mdebug[0m] [0m[0m	public [ibiblio][0m
 [0m[[0m[0mdebug[0m] [0m[0m	main [chain] [shared, public][0m
 [0m[[0m[0mdebug[0m] [0m[0m	local [file][0m
-[0m[[0m[0mdebug[0m] [0m[0m:: resolution report :: resolve 314ms :: artifacts dl 24ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m:: resolution report :: resolve 358ms :: artifacts dl 47ms[0m
 [0m[[0m[0mdebug[0m] [0m[0m	report for distributed_systems_security#distributed_systems_security_2.12;0.1 compile produced in /Users/nuno/IdeaProjects/authorization_server/target/scala-2.12/resolution-cache/reports/distributed_systems_security-distributed_systems_security_2.12-compile.xml[0m
 [0m[[0m[0mdebug[0m] [0m[0m	report for distributed_systems_security#distributed_systems_security_2.12;0.1 runtime produced in /Users/nuno/IdeaProjects/authorization_server/target/scala-2.12/resolution-cache/reports/distributed_systems_security-distributed_systems_security_2.12-runtime.xml[0m
 [0m[[0m[0mdebug[0m] [0m[0m	report for distributed_systems_security#distributed_systems_security_2.12;0.1 test produced in /Users/nuno/IdeaProjects/authorization_server/target/scala-2.12/resolution-cache/reports/distributed_systems_security-distributed_systems_security_2.12-test.xml[0m
@@ -4561,5 +4561,5 @@
 [0m[[0m[0mdebug[0m] [0m[0m	report for distributed_systems_security#distributed_systems_security_2.12;0.1 plugin produced in /Users/nuno/IdeaProjects/authorization_server/target/scala-2.12/resolution-cache/reports/distributed_systems_security-distributed_systems_security_2.12-plugin.xml[0m
 [0m[[0m[0mdebug[0m] [0m[0m	report for distributed_systems_security#distributed_systems_security_2.12;0.1 pom produced in /Users/nuno/IdeaProjects/authorization_server/target/scala-2.12/resolution-cache/reports/distributed_systems_security-distributed_systems_security_2.12-pom.xml[0m
 [0m[[0m[0mdebug[0m] [0m[0m	report for distributed_systems_security#distributed_systems_security_2.12;0.1 scala-tool produced in /Users/nuno/IdeaProjects/authorization_server/target/scala-2.12/resolution-cache/reports/distributed_systems_security-distributed_systems_security_2.12-scala-tool.xml[0m
-[0m[[0m[0mdebug[0m] [0m[0m	resolve done (314ms resolve - 24ms download)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	resolve done (358ms resolve - 47ms download)[0m
 [0m[[0m[0minfo[0m] [0m[0mDone updating.[0m

@@ -2,8 +2,12 @@ package bootstrap
 
 import model._
 import slick.jdbc.H2Profile.api._
+import slick.jdbc.meta.MTable
+import slick.lifted.PrimaryKey
 
-import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits._
+import scala.concurrent.{Await, Future}
+import scala.concurrent.duration.Duration
 
 object Tables {
 
@@ -13,29 +17,43 @@ object Tables {
   private val passwordInfos = TableQuery[PasswordInfos]
   private val oAuth2Infos = TableQuery[OAuth2Infos]
 
-  def createTables(): Future[Unit] = {
+  def createTables(): Future[Any] = {
     val connection = Database.forConfig("h2mem1")
 
+    val hasCreated = MTable.getTables map (tables => {!tables.exists(_.name.name == users.baseTableRow.tableName)})
 
-    val setUp = DBIO.seq((
-      users.schema
-        ++ loginInfos.schema
-        ++ userLoginInfos.schema
-        ++ passwordInfos.schema
-        ++ oAuth2Infos.schema
-      ).create,
+    connection.run(hasCreated).map[Any]{
+      case true => {
+        val setUp = DBIO.seq((
+          users.schema
+            ++ loginInfos.schema
+            ++ userLoginInfos.schema
+            ++ passwordInfos.schema
+            ++ oAuth2Infos.schema
+          ).create,
 
-      loginInfos += LoginInfo(None,"password","password"),
-      loginInfos += LoginInfo(None,"167287979969308","d9f6c5d384487054aaebb7500793725b")
+          loginInfos += LoginInfo(None,"password","password"),
+          loginInfos += LoginInfo(None,"167287979969308","d9f6c5d384487054aaebb7500793725b")
 
-    )
-    connection.run(setUp)
+        )
+        Await.result(connection.run(setUp),Duration.Inf)
+      }
+      case _ => {
+        val actions = for{
+          _ <- userLoginInfos.delete
+          _ <- passwordInfos.delete
+          _ <- users.delete
+          _ <- oAuth2Infos.delete
+        } yield ()
+
+        Await.result(connection.run(actions),Duration.Inf)
+      }
+    }
+
   }
 
   class Users(tag: Tag) extends Table[User](tag, "USER") {
     def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
-
-    def externalId = column[String]("resource", O.Unique)
 
     def username = column[String]("username", O.Unique)
 
@@ -45,7 +63,7 @@ object Tables {
 
     def isActive = column[Boolean]("isActive")
 
-    override def * = (id.?, externalId, username, firsName, email, isActive) <> (User.tupled, User.unapply)
+    override def * = (id.?, username, firsName, email, isActive) <> (User.tupled, User.unapply)
   }
 
 
@@ -63,15 +81,19 @@ object Tables {
 
   class UserLoginInfos(tag: Tag) extends Table[UserLoginInfo](tag, "USERLOGININFO") {
 
+    def id = column[Long]("ID", O.AutoInc)
+
     def userId = column[Long]("USER_ID")
 
-    def user = foreignKey("USER_LOGIN_FK", userId, users)(_.id)
+    //def user = foreignKey("USER_LOGIN_FK", userId, users)(_.id)
 
     def loginInfoId = column[Long]("LOGININFO_ID")
 
-    def loginInfo = foreignKey("LOGININFO_LOGIN_FK", loginInfoId, loginInfos)(_.id)
+    //def loginInfo = foreignKey("LOGININFO_LOGIN_FK", loginInfoId, loginInfos)(_.id)
 
-    def * = (userId, loginInfoId) <> (UserLoginInfo.tupled, UserLoginInfo.unapply)
+    def pk = primaryKey("userId_loginInfoId",(userId,loginInfoId))
+
+    def * = (id.?,userId, loginInfoId) <> (UserLoginInfo.tupled, UserLoginInfo.unapply)
   }
 
   class PasswordInfos(tag: Tag) extends Table[PasswordInfo](tag, "PASSWORDINFO") {
@@ -84,7 +106,7 @@ object Tables {
 
     def loginInfoId = column[Long]("LOGININFO_ID")
 
-    def loginInfo = foreignKey("LOGININFO_PASSWORD_FK", loginInfoId, loginInfos)(_.id)
+    def userLoginInfo = foreignKey("PasswordInfos_LOGININFO_PASSWORD_FK", loginInfoId, userLoginInfos)(_.id)
 
     def * = (hasher, password, salt, loginInfoId) <> (PasswordInfo.tupled, PasswordInfo.unapply)
   }
@@ -103,7 +125,7 @@ object Tables {
 
     def loginInfoId = column[Long]("LOGININFO_ID")
 
-    def loginInfo = foreignKey("LOGININFO_OAUTH_FK",loginInfoId,loginInfos)(_.id)
+    def userLoginInfo = foreignKey("OAuth2Infos_LOGININFO_PASSWORD_FK", loginInfoId, userLoginInfos)(_.id)
 
     def * = (id.?, accessToken, tokenType, expiresIn, refreshToken, loginInfoId) <> (OAuth2Info.tupled, OAuth2Info.unapply)
   }

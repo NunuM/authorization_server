@@ -4,7 +4,8 @@ import java.util.UUID
 import java.util.concurrent.TimeUnit
 
 import akka.actor.{Actor, ActorLogging}
-import model.Messages.{Authenticate, BearerToken, GenerateToken, UpdateToken}
+import akka.http.scaladsl.model.headers.OAuth2BearerToken
+import model.Messages.{Authenticate, GenerateToken, UpdateToken}
 
 import scala.concurrent.duration.Duration
 import scala.concurrent.duration._
@@ -22,10 +23,11 @@ class TokenActor extends Actor with ActorLogging{
 
   override def receive: Receive = {
     case GenerateToken(user) => {
+      println(user)
       val token = UUID.randomUUID()
       val expires = (2 day).toMillis + System.currentTimeMillis()
       tokenManager += (token -> (user, (2 day).toMillis + System.currentTimeMillis()))
-      sender() ! BearerToken("bearer",token.toString ,expires.toString)
+      sender() ! model.OauthBearerToken("bearer",expires.toString,token.toString,"")
     }
     case Authenticate(token) => {
      sender() ! (tokenManager.get(token) match {
