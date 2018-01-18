@@ -87,6 +87,11 @@ class AuthorizationServer(host: String, port: Int)
   }
 
   private val clientRegistrationRoute: Route =
+    path("health"){
+      get{
+        complete("oki")
+      }
+    } ~
     pathPrefix("user") {
       post {
         decodeRequest {
